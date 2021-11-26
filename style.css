@@ -1,0 +1,200 @@
+body {
+    background-color: rgb(250, 211, 235);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+header {
+    font-size: 25px;
+    color:rgb(100, 45, 28);
+    grid-area: header;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+}
+
+header .about {
+     text-align:center;
+    background: blanchedalmond;
+    box-shadow: 0 5px 10px rgb(19, 7, 7);
+}
+
+header nav {
+   text-align: center;
+    background: rgb(218, 184, 134);
+    box-shadow: 0 5px 10px rgb(182, 95, 69);
+}
+
+header .contact {
+    text-align: center;
+    background: rgb(194, 150, 84);
+    box-shadow: 0 5px 10px rgb(20, 12, 10);
+}
+
+.desktop-ad {
+    width: 400px;
+    margin:0 auto;
+}
+main{
+font-size: 30px;
+color: rgb(126, 26, 47);
+background-color:blanchedalmond;
+}
+
+.questions {
+    background: rgb(230, 207, 243);
+    box-shadow: 0 5px 10px rgb(20, 12, 10);
+    color: rgb(69, 59, 99);
+    padding: 10px;
+    grid-area: questions;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "action";
+}
+main {
+    background: lightpink;
+    box-shadow: 0 5px 10px rgb(85, 26, 26);
+    font-size: 25px;
+    padding: 10px;
+    grid-area: body;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "feature"
+        "ad"
+        "listing";
+}
+
+main .feature {
+    background: rgb(238, 116, 135);
+    grid-area: feature;
+}
+
+main .mobile-ad {
+    grid-area: ad;
+}
+
+main .listing {
+    background: rgb(255, 136, 154);
+    grid-area: listing;
+}
+footer {
+    background: rgb(143, 63, 96);
+    box-shadow: 0 5px 10px rgb(41, 18, 32);
+    color: aliceblue;
+    padding: 10px;
+    grid-area: footer;
+}
+.sidebar {
+background: rgb(184, 105, 138);
+    box-shadow: 0 5px 10px rgb(121, 54, 95);
+    color: aliceblue;
+    padding: 10px;
+    grid-area: sidebar;
+}
+.mobile-ad img {
+    vertical-align: top;
+    width: 100%;
+}
+
+.desktop-ad img {
+    vertical-align: top;
+    width: 350px;
+}
+
+.mobile-ad:hover {
+    opacity: 0.5;
+}
+
+.desktop-ad:hover {
+    opacity: 0.5;
+}
+
+/* For tablet-friendly layout: */
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "questions"
+            "body"
+            "sidebar"
+            "footer";
+    }
+
+    /* Change Header Layout */
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "about nav contact";
+    }
+
+    /* Change questions Layout */
+    .hero {
+        grid-template-areas:
+            "feature"
+            "action";
+    }
+
+    .hero .feature {
+        display: block;
+    }
+
+    /* Change Body Layout */
+    main {
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "feature ad"
+            "listing listing";
+    }
+
+    /* Change Sidebar Layout */
+    .sidebar {
+        display: grid;
+    }
+
+    .mobile-ad img {
+        width: 200px;
+    }
+}
+
+/* For desktop-friendly layout: */
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero ad"
+            "body sidebar"
+            "footer footer"
+    }
+
+    /* Change Hero Layout */
+    .hero {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "feature action"
+    }
+
+    /* Change Body Layout */
+    main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "feature listing"
+    }
+
+    .mobile-ad {
+        display: none;
+    }
+
+    .desktop-ad {
+        display: block;
+    }
+}
